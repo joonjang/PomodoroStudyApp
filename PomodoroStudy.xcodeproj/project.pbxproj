@@ -14,6 +14,7 @@
 		95C88E03284B276600546516 /* PomodoroStudyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C88E02284B276600546516 /* PomodoroStudyTests.swift */; };
 		95C88E0D284B276600546516 /* PomodoroStudyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C88E0C284B276600546516 /* PomodoroStudyUITests.swift */; };
 		95C88E0F284B276600546516 /* PomodoroStudyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C88E0E284B276600546516 /* PomodoroStudyUITestsLaunchTests.swift */; };
+		95E8B3F928ADEF6E00A52CDD /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E8B3F828ADEF6E00A52CDD /* ContentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,7 @@
 /* Begin PBXFileReference section */
 		95C88DEE284B276600546516 /* PomodoroStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PomodoroStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95C88DF1284B276600546516 /* PomodoroStudyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroStudyApp.swift; sourceTree = "<group>"; };
-		95C88DF3284B276600546516 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		95C88DF3284B276600546516 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; tabWidth = 4; };
 		95C88DF5284B276600546516 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95C88DF8284B276600546516 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		95C88DFE284B276600546516 /* PomodoroStudyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PomodoroStudyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +45,7 @@
 		95C88E08284B276600546516 /* PomodoroStudyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PomodoroStudyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		95C88E0C284B276600546516 /* PomodoroStudyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroStudyUITests.swift; sourceTree = "<group>"; };
 		95C88E0E284B276600546516 /* PomodoroStudyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroStudyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		95E8B3F828ADEF6E00A52CDD /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				95C88DF1284B276600546516 /* PomodoroStudyApp.swift */,
 				95C88DF3284B276600546516 /* ContentView.swift */,
+				95E8B3F828ADEF6E00A52CDD /* ContentViewModel.swift */,
 				95C88DF5284B276600546516 /* Assets.xcassets */,
 				95C88DF7284B276600546516 /* Preview Content */,
 			);
@@ -259,6 +262,7 @@
 			files = (
 				95C88DF4284B276600546516 /* ContentView.swift in Sources */,
 				95C88DF2284B276600546516 /* PomodoroStudyApp.swift in Sources */,
+				95E8B3F928ADEF6E00A52CDD /* ContentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
