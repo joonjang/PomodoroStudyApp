@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9565EFBC28BABF21004D8F9D /* progressData.json in Resources */ = {isa = PBXBuildFile; fileRef = 9565EFBB28BABF21004D8F9D /* progressData.json */; };
+		9565EFC228BAC385004D8F9D /* ProgressLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9565EFC128BAC385004D8F9D /* ProgressLine.swift */; };
+		9565EFC428BAC3B6004D8F9D /* ProgressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9565EFC328BAC3B6004D8F9D /* ProgressModel.swift */; };
+		9565EFC728BBC591004D8F9D /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9565EFC628BBC591004D8F9D /* ModelData.swift */; };
+		95B7025E28BD33D400D6F885 /* LineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B7025D28BD33D400D6F885 /* LineChartView.swift */; };
 		95C88DF2284B276600546516 /* PomodoroStudyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C88DF1284B276600546516 /* PomodoroStudyApp.swift */; };
 		95C88DF4284B276600546516 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C88DF3284B276600546516 /* ContentView.swift */; };
 		95C88DF6284B276600546516 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95C88DF5284B276600546516 /* Assets.xcassets */; };
@@ -35,6 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9565EFBB28BABF21004D8F9D /* progressData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = progressData.json; sourceTree = "<group>"; };
+		9565EFC128BAC385004D8F9D /* ProgressLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressLine.swift; sourceTree = "<group>"; };
+		9565EFC328BAC3B6004D8F9D /* ProgressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressModel.swift; sourceTree = "<group>"; };
+		9565EFC628BBC591004D8F9D /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		95B7025D28BD33D400D6F885 /* LineChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartView.swift; sourceTree = "<group>"; };
 		95C88DEE284B276600546516 /* PomodoroStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PomodoroStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95C88DF1284B276600546516 /* PomodoroStudyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroStudyApp.swift; sourceTree = "<group>"; };
 		95C88DF3284B276600546516 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; tabWidth = 4; };
@@ -73,6 +83,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9565EFBA28BABDB2004D8F9D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9565EFBB28BABF21004D8F9D /* progressData.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9565EFBD28BAC318004D8F9D /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				9565EFC128BAC385004D8F9D /* ProgressLine.swift */,
+				95B7025D28BD33D400D6F885 /* LineChartView.swift */,
+			);
+			path = Progress;
+			sourceTree = "<group>";
+		};
+		9565EFC528BAC3C4004D8F9D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				95E8B3F828ADEF6E00A52CDD /* ContentViewModel.swift */,
+				9565EFC328BAC3B6004D8F9D /* ProgressModel.swift */,
+				9565EFC628BBC591004D8F9D /* ModelData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		95C88DE5284B276600546516 = {
 			isa = PBXGroup;
 			children = (
@@ -98,7 +135,9 @@
 			children = (
 				95C88DF1284B276600546516 /* PomodoroStudyApp.swift */,
 				95C88DF3284B276600546516 /* ContentView.swift */,
-				95E8B3F828ADEF6E00A52CDD /* ContentViewModel.swift */,
+				9565EFC528BAC3C4004D8F9D /* Model */,
+				9565EFBD28BAC318004D8F9D /* Progress */,
+				9565EFBA28BABDB2004D8F9D /* Resources */,
 				95C88DF5284B276600546516 /* Assets.xcassets */,
 				95C88DF7284B276600546516 /* Preview Content */,
 			);
@@ -236,6 +275,7 @@
 			files = (
 				95C88DF9284B276600546516 /* Preview Assets.xcassets in Resources */,
 				95C88DF6284B276600546516 /* Assets.xcassets in Resources */,
+				9565EFBC28BABF21004D8F9D /* progressData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,7 +302,11 @@
 			files = (
 				95C88DF4284B276600546516 /* ContentView.swift in Sources */,
 				95C88DF2284B276600546516 /* PomodoroStudyApp.swift in Sources */,
+				9565EFC228BAC385004D8F9D /* ProgressLine.swift in Sources */,
+				95B7025E28BD33D400D6F885 /* LineChartView.swift in Sources */,
 				95E8B3F928ADEF6E00A52CDD /* ContentViewModel.swift in Sources */,
+				9565EFC428BAC3B6004D8F9D /* ProgressModel.swift in Sources */,
+				9565EFC728BBC591004D8F9D /* ModelData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +465,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PomodoroStudy/Preview Content\"";
+				DEVELOPMENT_TEAM = C6QDLKUJ86;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -449,6 +494,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PomodoroStudy/Preview Content\"";
+				DEVELOPMENT_TEAM = C6QDLKUJ86;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

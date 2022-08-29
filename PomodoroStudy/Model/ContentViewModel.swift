@@ -14,9 +14,15 @@ extension ContentView {
         @Published var isActive = false
         @Published var showingAlert = false
         @Published var time: String = "25:00"
+        @Published var chosen: Float = 25*60
+        @Published var climbing = true
         @Published var seconds: Float = 25.0 * 60 {
             didSet{
-                self.time = "\(Int(seconds)/60):00"
+                // Doesn't account for setting seconds, doesn't need to
+//                self.time = "\(Int(seconds)/60):00"
+                
+                //DEBUG: accounts for seconds
+                self.time = "\(Int(seconds)/60):\(Int(seconds)%60)"
             }
         }
         
@@ -42,7 +48,7 @@ extension ContentView {
         }
         
         
-        
+        // event listener function runs only when isActive is true
         func updateCountDown() {
             guard isActive else { return }
             

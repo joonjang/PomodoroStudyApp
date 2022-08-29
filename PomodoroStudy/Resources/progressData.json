@@ -1,0 +1,31 @@
+[
+    {
+        "id": "2022-02-23T11:00:00",
+        "elapsed": [
+            {
+                "time": 0,
+                "height": 0
+            },
+            {
+                "time": 25,
+                "height": 1
+            },
+            {
+                "time": 30,
+                "height": 1
+            },
+            {
+                "time": 55,
+                "height": 2
+            },
+            {
+                "time": 65,
+                "height": 2
+            },
+            {
+                "time": 90,
+                "height": 3
+            }
+        ]
+    }
+]
