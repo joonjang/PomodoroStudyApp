@@ -9,7 +9,7 @@ import Foundation
 
 // code help from:
 // https://www.youtube.com/watch?v=NAsQCNpodPI&list=LL&index=2
-extension ContentView {
+extension TimerView {
     final class ViewModel: ObservableObject {
         @Published var isActive = false
         @Published var showingAlert = false

@@ -45,7 +45,15 @@ import SwiftUI
                         .frame(width: screenWidth/CGFloat(labels.count) - 10)
                 }
             }
+            Text("(Minutes)")
             
         }
+    }
+}
+
+struct LineChartView_Previews: PreviewProvider {
+    static var previews: some View {
+        ProgressLine()
+            .environmentObject(ModelData())
     }
 }
