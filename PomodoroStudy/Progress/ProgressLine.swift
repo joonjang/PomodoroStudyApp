@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProgressLine: View {
     @EnvironmentObject var modelData: ModelData
+    var chartWidth: CGFloat
 
     var body: some View {
         let data = modelData.progress[0].elapsed
@@ -18,14 +19,14 @@ struct ProgressLine: View {
         let height = data.map { $0.height }
         
         VStack {
-            LineChartView(values: height, labels: time)
+            LineChartView(height: height, time: time, graphWidth: chartWidth)
         }
     }
 }
 
 struct ProgressLine_Previews: PreviewProvider {
     static var previews: some View {
-        ProgressLine()
+        ProgressLine(chartWidth: UIScreen.main.bounds.width)
             .environmentObject(ModelData())
     }
 }

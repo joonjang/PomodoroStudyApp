@@ -8,52 +8,58 @@
 import SwiftUI
 
  struct LineChartView: View {
-    var values: [Int]
-    var labels: [Int]
+     var height: [Int]
+     var time: [Int]
+     let xOffset = 10
+     
     
-    let screenWidth = UIScreen.main.bounds.width
+//    let screenWidth = UIScreen.main.bounds.width
+    var graphWidth: CGFloat
     
     private var path: Path {
         
-        if values.isEmpty {
+        if height.isEmpty {
             return Path()
         }
         
-        var offsetX: Int = -Int(screenWidth/CGFloat(values.count))/2
         var path = Path()
-        path.move(to: CGPoint(x: offsetX, y: values[0]))
         
-        for value in values {
-            offsetX += Int(screenWidth/CGFloat(values.count))
-            path.addLine(to: CGPoint(x: offsetX, y: value*100))
+        path.move(to: CGPoint(x: xOffset, y: 0))
+        
+        for (he, ti) in zip(height, time) {
+            path.addLine(to: CGPoint(x: (ti + xOffset)*3, y: he * 50))
         }
+
+        
         return path
         
     }
     
     var body: some View {
         VStack {
-            path.stroke(Color.red, lineWidth: 2.0)
+            path.stroke(Color.black, lineWidth: 2.0)
                 .rotationEffect(.degrees(180), anchor: .center)
                 .rotation3DEffect(.degrees(180), axis: (x: 0, y:1, z: 0))
                 .frame(maxWidth: .infinity, maxHeight: 300)
             
-            
-            HStack {
-                ForEach(labels, id: \.self) { label in
-                    Text("\(label)")
-                        .frame(width: screenWidth/CGFloat(labels.count) - 10)
+            ZStack {
+                ForEach(time, id: \.self) { ti in
+                    Text("\(ti)")
+                        .position(x: CGFloat(ti + xOffset)  * 3)
+                        .frame(height: 1)
+                        .font(.system(size:10))
                 }
             }
             Text("(Minutes)")
-            
         }
     }
 }
 
 struct LineChartView_Previews: PreviewProvider {
     static var previews: some View {
-        ProgressLine()
+        ProgressLine(chartWidth: UIScreen.main.bounds.width)
+            .environmentObject(ModelData())
+        ProgressLine(chartWidth: 100)
             .environmentObject(ModelData())
     }
 }
