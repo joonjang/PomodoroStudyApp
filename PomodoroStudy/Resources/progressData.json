@@ -19,13 +19,73 @@
                 "height": 2
             },
             {
-                "time": 65,
+                "time": 70,
                 "height": 2
             },
             {
-                "time": 90,
+                "time": 95,
                 "height": 3
             }
+        ]
+    },
+    {
+        "id": "2022-02-25T11:00:00",
+        "elapsed": [
+            {
+                "time": 0,
+                "height": 0
+            },
+            {
+                "time": 25,
+                "height": 1
+            },
+            {
+                "time": 30,
+                "height": 1
+            }
+        ]
+    },
+    {
+        "id": "2022-02-25T12:00:00",
+        "elapsed": [
+            {
+                "time": 0,
+                "height": 0
+            },
+            {
+                "time": 25,
+                "height": 1
+            },
+            {
+                "time": 50,
+                "height": 2
+            }
+        ]
+    },
+    {
+        "id": "2022-02-25T15:00:00",
+        "elapsed": [
+            {
+                "time": 0,
+                "height": 0
+            },
+            {
+                "time": 5,
+                "height": 0
+            },
+            {
+                "time": 20,
+                "height": 0
+            },
+            {
+                "time": 55,
+                "height": 1
+            },
+            {
+                "time": 70,
+                "height": 1
+            }
+            
         ]
     },
     {

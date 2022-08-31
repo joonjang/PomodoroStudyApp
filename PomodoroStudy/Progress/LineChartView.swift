@@ -11,11 +11,8 @@ import SwiftUI
      var height: [Int]
      var time: [Int]
      let xOffset = 10
-     
-    
-//    let screenWidth = UIScreen.main.bounds.width
-    var graphWidth: CGFloat
-    
+     let xScale = 2
+
     private var path: Path {
         
         if height.isEmpty {
@@ -27,7 +24,7 @@ import SwiftUI
         path.move(to: CGPoint(x: xOffset, y: 0))
         
         for (he, ti) in zip(height, time) {
-            path.addLine(to: CGPoint(x: (ti + xOffset)*3, y: he * 50))
+            path.addLine(to: CGPoint(x: (ti + xOffset) * xScale, y: he * 50))
         }
 
         
@@ -36,18 +33,19 @@ import SwiftUI
     }
     
     var body: some View {
-        VStack {
-            path.stroke(Color.black, lineWidth: 2.0)
+        ZStack(alignment: .bottom) {
+            path.stroke(Color.brown, lineWidth: 2.0)
                 .rotationEffect(.degrees(180), anchor: .center)
                 .rotation3DEffect(.degrees(180), axis: (x: 0, y:1, z: 0))
                 .frame(maxWidth: .infinity, maxHeight: 300)
+                .offset(y:-10)
             
-            ZStack {
-                ForEach(time, id: \.self) { ti in
+            VStack(spacing: 15) {
+                ForEach(time.reversed(), id: \.self) { ti in
                     Text("\(ti)")
-                        .position(x: CGFloat(ti + xOffset)  * 3)
+                        .position(x: CGFloat((ti + xOffset) * xScale)  )
                         .frame(height: 1)
-                        .font(.system(size:10))
+                        .font(.system(size:12))
                 }
             }
             Text("(Minutes)")
@@ -57,9 +55,9 @@ import SwiftUI
 
 struct LineChartView_Previews: PreviewProvider {
     static var previews: some View {
-        ProgressLine(chartWidth: UIScreen.main.bounds.width)
+        ProgressLine()
             .environmentObject(ModelData())
-        ProgressLine(chartWidth: 100)
+        ProgressLine()
             .environmentObject(ModelData())
     }
 }
