@@ -10,10 +10,6 @@ import Foundation
 struct ProgressModel: Codable, Hashable, Identifiable {
     // Date: https://developer.apple.com/documentation/foundation/dateformatter
     var id: String
-    var elapsed: [Observation]
+    var elapsed: [Int]
 
-    struct Observation: Codable, Hashable {
-        var time: Int
-        var height: Int
-    }
 }

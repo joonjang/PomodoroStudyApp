@@ -9,16 +9,19 @@ import SwiftUI
 
 struct ProgressLine: View {
     @EnvironmentObject var modelData: ModelData
+    
+    @State private var selectedValue: Int?
 
     var body: some View {
-        let data = modelData.progress[0].elapsed
+        let data = modelData.progress[1].elapsed
 
-        //https://developer.apple.com/documentation/swift/array/map(_:)-87c4d
-        let time = data.map { $0.time }
-        let height = data.map { $0.height }
-        
+//        //https://developer.apple.com/documentation/swift/array/map(_:)-87c4d
+//        let time = data.map { $0.time }
+//        let height = data.map { $0.height }
         VStack {
-            LineChartView(height: height, time: time)
+            LineGraphView(values: data, selectedValue: $selectedValue)
+                .frame(maxHeight: .infinity)
+            Text("(Minutes)")
         }
     }
 

@@ -18,8 +18,10 @@ struct ActiveProgression: View {
             if(climbing) {
                 ProgressView(value: chosenTime - currentSec, total: chosenTime)
                     .rotationEffect(.degrees(-45))
+                    .offset(x:-24)
             } else {
                 ProgressView(value: chosenTime - currentSec, total: chosenTime)
+                    .offset(x: -10 ,y: 34)
             }
 
         }
