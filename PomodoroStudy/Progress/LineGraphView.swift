@@ -44,14 +44,14 @@ struct LineGraphView: View {
     @Binding private var selectedValue: Int?
     
     let graphNodes: [GraphNode]
-
+    
     init(values: [Int], selectedValue: Binding<Int?>) {
         self._selectedValue = selectedValue
         guard let maxValue = values.max(), let minValue = values.min() else {
             graphNodes = [GraphNode]()
             return
         }
-
+        
         var nodes = [GraphNode]()
         for i in values.indices {
             let percentageY = 1 - Double(values[i] - minValue) / Double(maxValue - minValue)
@@ -75,8 +75,9 @@ struct LineGraphView: View {
                                                    lineCap: .round,
                                                    lineJoin: .round))
                     
+                    let uniqueVals = filterUniqueVal(gn: graphNodes)
                     
-                    ForEach(graphNodes, id: \.self ) { nodes in
+                    ForEach(uniqueVals, id: \.self ) { nodes in
                         if nodes.value  % 5 == 0 {
                             Text("\(nodes.value)")
                                 .font(.system(size: 10))
@@ -91,19 +92,44 @@ struct LineGraphView: View {
         }
     }
     
-        @ViewBuilder
-        func selectedNodeHighlight (viewSize: CGSize) -> some View {
-                let point = graphNodes[6].point(for: viewSize)
-                ZStack {
-                    Circle()
-                        .frame (width: 18, height: 18)
-                        .foregroundColor(.white.opacity(0.9))
-                    Circle()
-                        .frame (width: 11, height: 11)
-                        .foregroundColor(Color.accentColor)
-                }
-                .position(x: point.x, y: point.y)
+    func filterUniqueVal (gn: [GraphNode] ) -> [GraphNode] {
+        var buffer = [GraphNode]()
+        var added = Set<Int>()
+        for node in gn {
+            if !added.contains(node.value) {
+                buffer.append(node)
+                added.insert(node.value)
+            }
         }
+        return buffer
+    }
+    
+//  https://stackoverflow.com/questions/25738817/removing-duplicate-elements-from-an-array-in-swift
+//    func unique<S : Sequence, T : Hashable>(source: S) -> [T] where S.Iterator.Element == T {
+//        var buffer = [T]()
+//        var added = Set<T>()
+//        for elem in source {
+//            if !added.contains(elem) {
+//                buffer.append(elem)
+//                added.insert(elem)
+//            }
+//        }
+//        return buffer
+//    }
+    
+    @ViewBuilder
+    func selectedNodeHighlight (viewSize: CGSize) -> some View {
+        let point = graphNodes[6].point(for: viewSize)
+        ZStack {
+            Circle()
+                .frame (width: 18, height: 18)
+                .foregroundColor(.white.opacity(0.9))
+            Circle()
+                .frame (width: 11, height: 11)
+                .foregroundColor(Color.accentColor)
+        }
+        .position(x: point.x, y: point.y)
+    }
     
 }
 
