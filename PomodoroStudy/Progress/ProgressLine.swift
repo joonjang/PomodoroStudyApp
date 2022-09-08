@@ -10,10 +10,10 @@ import SwiftUI
 struct ProgressLine: View {
     @EnvironmentObject var modelData: ModelData
     
-    @State private var selectedValue: Int?
+    @Binding var selectedValue: Int?
 
     var body: some View {
-        let data = modelData.progress[1].elapsed
+        let data = modelData.progress[0].elapsed
 
 //        //https://developer.apple.com/documentation/swift/array/map(_:)-87c4d
 //        let time = data.map { $0.time }
@@ -21,7 +21,7 @@ struct ProgressLine: View {
         VStack {
             LineGraphView(values: data, selectedValue: $selectedValue)
                 .frame(maxHeight: .infinity)
-            Text("(Minutes)")
+            Text("(Minutes Of Climbing To Success)")
         }
     }
 
@@ -29,7 +29,7 @@ struct ProgressLine: View {
 
 struct ProgressLine_Previews: PreviewProvider {
     static var previews: some View {
-        ProgressLine()
+        ProgressLine(selectedValue: .constant(0))
             .environmentObject(ModelData())
     }
 }

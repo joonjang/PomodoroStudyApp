@@ -78,14 +78,30 @@ struct LineGraphView: View {
                     let uniqueVals = filterUniqueVal(gn: graphNodes)
                     
                     ForEach(uniqueVals, id: \.self ) { nodes in
-                        if nodes.value  % 5 == 0 {
-                            Text("\(nodes.value)")
-                                .font(.system(size: 10))
-                                .position(x: nodes.point(for: reader.size).x,
-                                          y: nodes.point(for: reader.size).y + 15 )
+                        if graphNodes.count < 100 {
+                            if nodes.value  % 5 == 0 {
+                                Text("\(nodes.value)")
+                                    .font(.system(size: 10))
+                                    .position(x: nodes.point(for: reader.size).x,
+                                              y: nodes.point(for: reader.size).y + 15 )
+                            }
+                        } else if graphNodes.count < 150 {
+                            if nodes.value  % 25 == 0 || nodes.value % 10 == 0 {
+                                Text("\(nodes.value)")
+                                    .font(.system(size: 10))
+                                    .position(x: nodes.point(for: reader.size).x,
+                                              y: nodes.point(for: reader.size).y + 15 )
+                            }
+                        } else {
+                            if nodes.value  % 25 == 0 {
+                                Text("\(nodes.value)")
+                                    .font(.system(size: 10))
+                                    .position(x: nodes.point(for: reader.size).x,
+                                              y: nodes.point(for: reader.size).y + 15 )
+                            }
                         }
                     }
-                    selectedNodeHighlight(viewSize: reader.size)
+                    selectedNodeHighlight(viewSize: reader.size, sv: selectedValue)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
@@ -118,9 +134,12 @@ struct LineGraphView: View {
 //    }
     
     @ViewBuilder
-    func selectedNodeHighlight (viewSize: CGSize) -> some View {
-        let point = graphNodes[6].point(for: viewSize)
+    func selectedNodeHighlight (viewSize: CGSize, sv: Int?) -> some View {
+        let point = graphNodes[sv ?? 0].point(for: viewSize)
         ZStack {
+            Text("\(sv ?? 0)")
+                .font(.system(size: 15))
+                .offset(y:-20)
             Circle()
                 .frame (width: 18, height: 18)
                 .foregroundColor(.white.opacity(0.9))

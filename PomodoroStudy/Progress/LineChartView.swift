@@ -64,7 +64,7 @@ import SwiftUI
 
 struct LineChartView_Previews: PreviewProvider {
     static var previews: some View {
-        ProgressLine()
+        ProgressLine(selectedValue: .constant(0))
             .environmentObject(ModelData())
     }
 }
