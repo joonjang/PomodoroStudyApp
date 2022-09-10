@@ -13,13 +13,12 @@ struct ProgressLine: View {
     @Binding var selectedValue: Int?
 
     var body: some View {
-        let data = modelData.progress[0].elapsed
 
 //        //https://developer.apple.com/documentation/swift/array/map(_:)-87c4d
 //        let time = data.map { $0.time }
 //        let height = data.map { $0.height }
         VStack {
-            LineGraphView(values: data, selectedValue: $selectedValue)
+            LineGraphView(values: modelData.progress[0].elapsed, selectedValue: $selectedValue)
                 .frame(maxHeight: .infinity)
             Text("(Minutes Of Climbing To Success)")
         }

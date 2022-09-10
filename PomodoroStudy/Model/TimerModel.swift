@@ -12,8 +12,9 @@ import Foundation
 extension TimerView {
     final class ViewModel: ObservableObject {
         @Published var selectedValue: Int? = 0
+        @Published var rest: Int = 0
         
-        @Published var chosen: Float = 25.0*60
+        @Published var chosenIndex: Float = 25.0*60
         @Published var isActive = false
         @Published var showingAlert = false
         @Published var time: String = "25:00"
@@ -74,7 +75,7 @@ extension TimerView {
             
 //            self.selectedValue = Int(self.chosen - self.seconds)/60
             // TODO: debugging, set to seconds increments
-            self.selectedValue = Int(self.chosen - self.seconds)
+            self.selectedValue = Int(self.chosenIndex - self.seconds) + self.rest
         }
     }
 }
