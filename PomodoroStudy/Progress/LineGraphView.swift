@@ -137,7 +137,7 @@ struct LineGraphView: View {
     func selectedNodeHighlight (viewSize: CGSize, sv: Int?) -> some View {
         let point = graphNodes[sv ?? 0].point(for: viewSize)
         ZStack {
-            Text("\(sv ?? 0)")
+            Text("\(graphNodes[sv ?? 0].value)")
                 .font(.system(size: 15))
                 .offset(y:-20)
             Circle()
