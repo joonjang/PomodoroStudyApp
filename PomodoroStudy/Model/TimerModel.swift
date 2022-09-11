@@ -12,7 +12,6 @@ import Foundation
 extension TimerView {
     final class ViewModel: ObservableObject {
         @Published var selectedValue: Int? = 0
-        @Published var rest: Int = 0
         @Published var finished: Bool = false
         @Published var lastAddedCount: Int = 25
         
@@ -24,10 +23,10 @@ extension TimerView {
         @Published var seconds: Float = 25.0 * 60 {
             didSet{
                 // Doesn't account for setting seconds, doesn't need to
-//                self.time = "\(Int(seconds)/60):00"
+                self.time = "\(Int(seconds)/60):00"
                 
                 //TODO: DEBUG: accounts for seconds
-                self.time = "\(Int(seconds)/60):\(Int(seconds)%60)"
+//                self.time = "\(Int(seconds)/60):\(Int(seconds)%60)"
             }
         }
         
@@ -75,9 +74,9 @@ extension TimerView {
             self.seconds = Float(minutes * 60 + seconds)
             self.time = String(format: "%d:%02d", minutes, seconds)
             
-//            self.selectedValue = Int(self.chosen - self.seconds)/60
+//            self.selectedValue = Int(self.chosenIndex - (self.seconds/60))
             // TODO: debugging, set to seconds increments
-            self.selectedValue = Int(self.chosenIndex - self.seconds) + self.rest
+            self.selectedValue = Int(self.chosenIndex - self.seconds)
         }
     }
 }

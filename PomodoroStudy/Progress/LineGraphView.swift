@@ -137,11 +137,11 @@ struct LineGraphView: View {
     @ViewBuilder
     func selectedNodeHighlight (viewSize: CGSize, sv: Int?) -> some View {
         let point = graphNodes[sv ?? 0].point(for: viewSize)
-        if sv != 0 {
+//        if sv != 0 {
             ZStack {
                 Text("\(graphNodes[sv ?? 0].value) min")
                     .font(.system(size: 15))
-                    .offset(x: -4, y: -45)
+                    .offset(x: -4, y: -40 )
 //                Circle()
 //                    .frame (width: 18, height: 18)
 //                    .foregroundColor(.white.opacity(0.9))
@@ -149,22 +149,33 @@ struct LineGraphView: View {
 //                    .frame (width: 11, height: 11)
 //                    .foregroundColor(Color.accentColor)
                 
-                Image("running")
-                    .resizable()
-                    .frame(width:35, height:35)
-                    .offset(y: -18)
-                    .rotationEffect(Angle.degrees(-40))
+                if graphNodes[sv ?? 0] == graphNodes.last {
+                    Image("victory")
+                        .resizable()
+                        .frame(width:(25),
+                               height:25)
+                        .offset(y: -15 )
+
+                } else {
+                    Image("running")
+                        .resizable()
+                        .frame(width:(25),
+                               height:25)
+                        .offset(y: -15 )
+                        .rotationEffect(Angle.degrees(-40))
+                }
             }
+            .animation(.linear(duration: 2))
             .position(x: point.x, y: point.y)
         }
-    }
+//    }
     
 }
 
 struct LineGraphView_Previews: PreviewProvider {
 
     static var previews: some View {
-        LineGraphView(values: ModelData().progress[0].elapsed, selectedValue: .constant(1))
+        LineGraphView(values: ModelData().progress[0].elapsed, selectedValue: .constant(25))
             .environmentObject(ModelData())
     }
 }
