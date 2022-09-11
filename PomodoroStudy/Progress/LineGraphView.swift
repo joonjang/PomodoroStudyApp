@@ -77,6 +77,7 @@ struct LineGraphView: View {
                     
                     let uniqueVals = filterUniqueVal(gn: graphNodes)
                     
+                    // adjust graph x-axis marking
                     ForEach(uniqueVals, id: \.self ) { nodes in
                         if graphNodes.count < 100 {
                             if nodes.value  % 5 == 0 {
@@ -136,25 +137,34 @@ struct LineGraphView: View {
     @ViewBuilder
     func selectedNodeHighlight (viewSize: CGSize, sv: Int?) -> some View {
         let point = graphNodes[sv ?? 0].point(for: viewSize)
-        ZStack {
-            Text("\(graphNodes[sv ?? 0].value)")
-                .font(.system(size: 15))
-                .offset(y:-20)
-            Circle()
-                .frame (width: 18, height: 18)
-                .foregroundColor(.white.opacity(0.9))
-            Circle()
-                .frame (width: 11, height: 11)
-                .foregroundColor(Color.accentColor)
+        if sv != 0 {
+            ZStack {
+                Text("\(graphNodes[sv ?? 0].value) min")
+                    .font(.system(size: 15))
+                    .offset(x: -4, y: -45)
+//                Circle()
+//                    .frame (width: 18, height: 18)
+//                    .foregroundColor(.white.opacity(0.9))
+//                Circle()
+//                    .frame (width: 11, height: 11)
+//                    .foregroundColor(Color.accentColor)
+                
+                Image("running")
+                    .resizable()
+                    .frame(width:35, height:35)
+                    .offset(y: -18)
+                    .rotationEffect(Angle.degrees(-40))
+            }
+            .position(x: point.x, y: point.y)
         }
-        .position(x: point.x, y: point.y)
     }
     
 }
 
 struct LineGraphView_Previews: PreviewProvider {
+
     static var previews: some View {
-        ContentView()
+        LineGraphView(values: ModelData().progress[0].elapsed, selectedValue: .constant(1))
             .environmentObject(ModelData())
     }
 }
