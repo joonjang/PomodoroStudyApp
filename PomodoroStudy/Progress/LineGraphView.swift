@@ -54,7 +54,7 @@ struct LineGraphView: View {
         
         var nodes = [GraphNode]()
         for i in values.indices {
-            let percentageY = 1 - Double(values[i] - minValue) / Double(maxValue - minValue)
+            let percentageY = 1 - Double(values[i] - minValue) / (Double(maxValue - minValue) == 0 ? 1 : Double(maxValue - minValue))
             let percentageX = Double(i) / Double(values.count - 1)
             let newNode = GraphNode (value: values[i],
                                      percentageX: percentageX,

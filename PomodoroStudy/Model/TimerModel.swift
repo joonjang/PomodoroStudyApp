@@ -13,8 +13,10 @@ extension TimerView {
     final class ViewModel: ObservableObject {
         @Published var selectedValue: Int? = 0
         @Published var rest: Int = 0
+        @Published var finished: Bool = false
+        @Published var lastAddedCount: Int = 25
         
-        @Published var chosenIndex: Float = 25.0*60
+        @Published var chosenIndex: Float = 25.0
         @Published var isActive = false
         @Published var showingAlert = false
         @Published var time: String = "25:00"
