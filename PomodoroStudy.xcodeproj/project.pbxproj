@@ -11,7 +11,6 @@
 		9565EFC228BAC385004D8F9D /* ProgressLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9565EFC128BAC385004D8F9D /* ProgressLine.swift */; };
 		9565EFC428BAC3B6004D8F9D /* ProgressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9565EFC328BAC3B6004D8F9D /* ProgressModel.swift */; };
 		9565EFC728BBC591004D8F9D /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9565EFC628BBC591004D8F9D /* ModelData.swift */; };
-		95B7026128BD89E800D6F885 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B7026028BD89E800D6F885 /* TimerView.swift */; };
 		95B7026328BD8BC500D6F885 /* ActiveProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B7026228BD8BC500D6F885 /* ActiveProgression.swift */; };
 		95B7028328C3F2BC00D6F885 /* LineGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B7028228C3F2BC00D6F885 /* LineGraphView.swift */; };
 		95C88DF2284B276600546516 /* PomodoroStudyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C88DF1284B276600546516 /* PomodoroStudyApp.swift */; };
@@ -46,7 +45,6 @@
 		9565EFC128BAC385004D8F9D /* ProgressLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressLine.swift; sourceTree = "<group>"; };
 		9565EFC328BAC3B6004D8F9D /* ProgressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressModel.swift; sourceTree = "<group>"; };
 		9565EFC628BBC591004D8F9D /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
-		95B7026028BD89E800D6F885 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		95B7026228BD8BC500D6F885 /* ActiveProgression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveProgression.swift; sourceTree = "<group>"; };
 		95B7028228C3F2BC00D6F885 /* LineGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraphView.swift; sourceTree = "<group>"; };
 		95C88DEE284B276600546516 /* PomodoroStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PomodoroStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,14 +113,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		95B7025F28BD895100D6F885 /* Timer */ = {
-			isa = PBXGroup;
-			children = (
-				95B7026028BD89E800D6F885 /* TimerView.swift */,
-			);
-			path = Timer;
-			sourceTree = "<group>";
-		};
 		95C88DE5284B276600546516 = {
 			isa = PBXGroup;
 			children = (
@@ -149,7 +139,6 @@
 				95C88DF1284B276600546516 /* PomodoroStudyApp.swift */,
 				95C88DF3284B276600546516 /* ContentView.swift */,
 				9565EFC528BAC3C4004D8F9D /* Model */,
-				95B7025F28BD895100D6F885 /* Timer */,
 				9565EFBD28BAC318004D8F9D /* Progress */,
 				9565EFBA28BABDB2004D8F9D /* Resources */,
 				95C88DF5284B276600546516 /* Assets.xcassets */,
@@ -320,7 +309,6 @@
 				9565EFC228BAC385004D8F9D /* ProgressLine.swift in Sources */,
 				95E8B3F928ADEF6E00A52CDD /* TimerModel.swift in Sources */,
 				9565EFC428BAC3B6004D8F9D /* ProgressModel.swift in Sources */,
-				95B7026128BD89E800D6F885 /* TimerView.swift in Sources */,
 				95B7026328BD8BC500D6F885 /* ActiveProgression.swift in Sources */,
 				9565EFC728BBC591004D8F9D /* ModelData.swift in Sources */,
 			);

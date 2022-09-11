@@ -9,7 +9,7 @@ import Foundation
 
 // code help from:
 // https://www.youtube.com/watch?v=NAsQCNpodPI&list=LL&index=2
-extension TimerView {
+extension ContentView {
     final class ViewModel: ObservableObject {
         @Published var selectedValue: Int? = 0
         @Published var finished: Bool = false
@@ -74,9 +74,9 @@ extension TimerView {
             self.seconds = Float(minutes * 60 + seconds)
             self.time = String(format: "%d:%02d", minutes, seconds)
             
-//            self.selectedValue = Int(self.chosenIndex - (self.seconds/60))
+            self.selectedValue = Int(self.chosenIndex - (self.seconds/60))
             // TODO: debugging, set to seconds increments
-            self.selectedValue = Int(self.chosenIndex - self.seconds)
+//            self.selectedValue = Int(self.chosenIndex - self.seconds)
         }
     }
 }

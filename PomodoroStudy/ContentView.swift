@@ -9,7 +9,34 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var vm = ViewModel()
+    @EnvironmentObject var modelData: ModelData
+    
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
+    func startProgress(climb: Bool, sec: Float) {
+        vm.seconds = sec * 60
+        vm.chosenIndex = Float(modelData.progress[0].elapsed.count - 1)
+        vm.climbing = climb
+        vm.finished = false
+        vm.lastAddedCount = Int(sec)
+        vm.selectedValue = Int(vm.chosenIndex - (vm.seconds/60))
+    }
+    
+    func deleteJson(){
+        if(!vm.finished) {
+            modelData.progress[0].elapsed.removeSubrange((modelData.progress[0].elapsed.count - vm.lastAddedCount)...(modelData.progress[0].elapsed.count - 1))
+        }
+    }
+    
+    func addJson(range2: Int, inc: Bool){
+        for _ in 1...range2 {
+            if inc {
+                modelData.progress[0].elapsed.append(modelData.progress[0].elapsed.last! + 1)
+            } else {
+                modelData.progress[0].elapsed.append(modelData.progress[0].elapsed.last!)
+            }
+        }
+    }
     
     var body: some View {
 
@@ -18,37 +45,22 @@ struct ContentView: View {
             // Time configuration buttons
             HStack {
                 Button("Pomodoro") {
-                    vm.seconds = 25.00 * 60
-                    vm.chosen = 25.0 * 60
-                    vm.climbing = true
+                    deleteJson()
+                    addJson(range2: 25, inc: true)
+                    startProgress(climb: true, sec: 25.0)
                 }
                 
                 Button("Short Break") {
-                    vm.seconds = 5.0 * 60
-                    vm.chosen = 5.0 * 60
-                    vm.climbing = false
+                    deleteJson()
+                    addJson(range2: 5, inc: false)
+                    startProgress(climb: false, sec: 5.0)
                 }
                 Button("Long Break") {
-                    vm.seconds = 15.0 * 60
-                    vm.chosen = 15.0 * 60
-                    vm.climbing = false
+                    deleteJson()
+                    addJson(range2: 15, inc: false)
+                    startProgress(climb: false, sec: 15.0)
                 }
-                
-                //DEBUG
-                VStack{
-                    //Climb
-                    Button("D1") {
-                        vm.seconds = 30.0
-                        vm.chosen = 30.0
-                        vm.climbing = true
-                    }
-                    //Rest
-                    Button("D2") {
-                        vm.seconds = 10.0
-                        vm.chosen = 10.0
-                        vm.climbing = false
-                    }
-                }
+              
             }
             .buttonStyle(.bordered)
             .disabled(vm.isActive)
@@ -58,10 +70,14 @@ struct ContentView: View {
                 .font(.system(size: 100))
                 .alert("Time Complete", isPresented: $vm.showingAlert) {
                     Button("Continue", role: .cancel) {
-                        // code
+                        vm.finished = true
                     }
                 }
                 
+//            //DEBUG
+//            Text("chosen index: \(vm.chosenIndex)")
+//            Text("sec: \(vm.seconds)")
+//            Text("lastAdded: \(vm.lastAddedCount)")
 
             // Start/Pause buttons
             HStack {
@@ -77,26 +93,15 @@ struct ContentView: View {
                 }
                 .disabled(!vm.isActive)
             }
-            .padding()
+            .padding(.horizontal)
+            .padding(.top, -30)
+            .padding(.bottom, 25)
             .buttonStyle(.borderedProminent)
             
-            Spacer()
-            
             // Progress visual
-            VStack {
-                if(vm.climbing) {
-                    ProgressView(value: vm.chosen - vm.seconds, total: vm.chosen)
-                        .rotationEffect(.degrees(-45))
-                } else {
-                    ProgressView(value: vm.chosen - vm.seconds, total: vm.chosen)
-                }
-                Rectangle()
-                    .frame(height: 5)
-                    .rotationEffect(.degrees(-45))
-                Rectangle()
-                    .frame(height: 5)
-            }
-            Spacer()
+            ProgressLine(selectedValue: $vm.selectedValue)
+                .padding(25)
+
         }
         .onReceive(timer) { _ in
             vm.updateCountDown()
@@ -108,5 +113,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(ModelData())
     }
 }
