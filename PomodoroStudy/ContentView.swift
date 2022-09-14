@@ -78,6 +78,7 @@ struct ContentView: View {
 //            Text("chosen index: \(vm.chosenIndex)")
 //            Text("sec: \(vm.seconds)")
 //            Text("lastAdded: \(vm.lastAddedCount)")
+//            Text("count: \(modelData.progress[0].elapsed.count)")
 
             // Start/Pause buttons
             HStack {
