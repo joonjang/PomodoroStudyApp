@@ -165,7 +165,7 @@ struct LineGraphView: View {
                         .rotationEffect(Angle.degrees(-40))
                 }
             }
-            .animation(.linear(duration: 2))
+            .animation(.linear(duration: 2), value: graphNodes[sv ?? 0])
             .position(x: point.x, y: point.y)
         }
 //    }

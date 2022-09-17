@@ -14,7 +14,11 @@ struct ContentView: View {
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     func startProgress(climb: Bool, sec: Float) {
+        
         vm.seconds = sec * 60
+        // TODO: DEBUG
+//        vm.seconds = sec
+        
         vm.chosenIndex = Float(modelData.progress[0].elapsed.count - 1)
         vm.climbing = climb
         vm.finished = false
@@ -73,6 +77,7 @@ struct ContentView: View {
                         vm.finished = true
                     }
                 }
+                .animation(nil, value: 0)
                 
 //            //DEBUG
 //            Text("chosen index: \(vm.chosenIndex)")
@@ -98,6 +103,9 @@ struct ContentView: View {
             .padding(.top, -30)
             .padding(.bottom, 25)
             .buttonStyle(.borderedProminent)
+            
+            
+            Text("Inspiration Quote - Anonymous")
             
             // Progress visual
             ProgressLine(selectedValue: $vm.selectedValue)
