@@ -99,6 +99,7 @@ struct ContentView: View {
                 .disabled(vm.isActive)
                 
                 Spacer()
+                    .frame(width: 200)
                 
                 Button("Pause", role: .destructive) {
                     vm.pause()
