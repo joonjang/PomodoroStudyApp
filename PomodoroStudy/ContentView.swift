@@ -93,18 +93,18 @@ struct ContentView: View {
 
             // Start/Pause buttons
             HStack {
-                Button("Start") {
-                    vm.start(sec: vm.seconds)
-                }
-                .disabled(vm.isActive)
-                
-                Spacer()
-                    .frame(width: 200)
-                
                 Button("Pause", role: .destructive) {
                     vm.pause()
                 }
                 .disabled(!vm.isActive)
+                
+                Spacer()
+                    .frame(width: 200)
+                
+                Button("Start") {
+                    vm.start(sec: vm.seconds)
+                }
+                .disabled(vm.isActive)
             }
             .padding(.horizontal)
             .padding(.top, -30)
