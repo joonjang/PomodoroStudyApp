@@ -11,6 +11,8 @@
 		9565EFC228BAC385004D8F9D /* ProgressLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9565EFC128BAC385004D8F9D /* ProgressLine.swift */; };
 		9565EFC428BAC3B6004D8F9D /* ProgressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9565EFC328BAC3B6004D8F9D /* ProgressModel.swift */; };
 		9565EFC728BBC591004D8F9D /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9565EFC628BBC591004D8F9D /* ModelData.swift */; };
+		95B6D01B28D57AB000B490C8 /* quotes.json in Resources */ = {isa = PBXBuildFile; fileRef = 95B6D01A28D57AB000B490C8 /* quotes.json */; };
+		95B6D01D28D57B4C00B490C8 /* QuotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B6D01C28D57B4C00B490C8 /* QuotesModel.swift */; };
 		95B7026328BD8BC500D6F885 /* ActiveProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B7026228BD8BC500D6F885 /* ActiveProgression.swift */; };
 		95B7028328C3F2BC00D6F885 /* LineGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B7028228C3F2BC00D6F885 /* LineGraphView.swift */; };
 		95C88DF2284B276600546516 /* PomodoroStudyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C88DF1284B276600546516 /* PomodoroStudyApp.swift */; };
@@ -45,6 +47,8 @@
 		9565EFC128BAC385004D8F9D /* ProgressLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressLine.swift; sourceTree = "<group>"; };
 		9565EFC328BAC3B6004D8F9D /* ProgressModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressModel.swift; sourceTree = "<group>"; };
 		9565EFC628BBC591004D8F9D /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		95B6D01A28D57AB000B490C8 /* quotes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = quotes.json; sourceTree = "<group>"; };
+		95B6D01C28D57B4C00B490C8 /* QuotesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesModel.swift; sourceTree = "<group>"; };
 		95B7026228BD8BC500D6F885 /* ActiveProgression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveProgression.swift; sourceTree = "<group>"; };
 		95B7028228C3F2BC00D6F885 /* LineGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineGraphView.swift; sourceTree = "<group>"; };
 		95C88DEE284B276600546516 /* PomodoroStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PomodoroStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				9565EFBB28BABF21004D8F9D /* progressData.json */,
+				95B6D01A28D57AB000B490C8 /* quotes.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -108,6 +113,7 @@
 			children = (
 				95E8B3F828ADEF6E00A52CDD /* TimerModel.swift */,
 				9565EFC328BAC3B6004D8F9D /* ProgressModel.swift */,
+				95B6D01C28D57B4C00B490C8 /* QuotesModel.swift */,
 				9565EFC628BBC591004D8F9D /* ModelData.swift */,
 			);
 			path = Model;
@@ -276,6 +282,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95B6D01B28D57AB000B490C8 /* quotes.json in Resources */,
 				95C88DF9284B276600546516 /* Preview Assets.xcassets in Resources */,
 				95C88DF6284B276600546516 /* Assets.xcassets in Resources */,
 				9565EFBC28BABF21004D8F9D /* progressData.json in Resources */,
@@ -305,6 +312,7 @@
 			files = (
 				95C88DF4284B276600546516 /* ContentView.swift in Sources */,
 				95B7028328C3F2BC00D6F885 /* LineGraphView.swift in Sources */,
+				95B6D01D28D57B4C00B490C8 /* QuotesModel.swift in Sources */,
 				95C88DF2284B276600546516 /* PomodoroStudyApp.swift in Sources */,
 				9565EFC228BAC385004D8F9D /* ProgressLine.swift in Sources */,
 				95E8B3F928ADEF6E00A52CDD /* TimerModel.swift in Sources */,
@@ -472,9 +480,12 @@
 				DEVELOPMENT_TEAM = C6QDLKUJ86;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Pomodoro Success";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -501,9 +512,12 @@
 				DEVELOPMENT_TEAM = C6QDLKUJ86;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Pomodoro Success";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

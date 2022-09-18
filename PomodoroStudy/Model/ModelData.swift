@@ -10,6 +10,7 @@ import Combine
 
 final class ModelData: ObservableObject {
     @Published var progress: [ProgressModel] = load("progressData.json")
+    @Published var quotes: [QuotesModel] = load("quotes.json")
 }
 
 func load<T: Decodable>(_ filename: String) -> T {

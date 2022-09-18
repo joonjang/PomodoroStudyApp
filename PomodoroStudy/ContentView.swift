@@ -11,6 +11,9 @@ struct ContentView: View {
     @StateObject private var vm = ViewModel()
     @EnvironmentObject var modelData: ModelData
     
+//    let randomInt = Int.random(in: 0..<modelData.quotes.count)
+    @State var randomInt = Int.random(in: 0...1642)
+    
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     func startProgress(climb: Bool, sec: Float) {
@@ -52,19 +55,22 @@ struct ContentView: View {
                     deleteJson()
                     addJson(range2: 25, inc: true)
                     startProgress(climb: true, sec: 25.0)
+                    randomInt = Int.random(in: 0...1642)
                 }
                 
                 Button("Short Break") {
                     deleteJson()
                     addJson(range2: 5, inc: false)
                     startProgress(climb: false, sec: 5.0)
+                    randomInt = Int.random(in: 0...1642)
                 }
                 Button("Long Break") {
                     deleteJson()
                     addJson(range2: 15, inc: false)
                     startProgress(climb: false, sec: 15.0)
+                    randomInt = Int.random(in: 0...1642)
                 }
-              
+                
             }
             .buttonStyle(.bordered)
             .disabled(vm.isActive)
@@ -101,11 +107,14 @@ struct ContentView: View {
             }
             .padding(.horizontal)
             .padding(.top, -30)
-            .padding(.bottom, 25)
+            .padding(.bottom, 10)
             .buttonStyle(.borderedProminent)
             
-            
-            Text("Inspiration Quote - Anonymous")
+            Group {
+                Text("\(modelData.quotes[randomInt].text)")
+                Text("- \(modelData.quotes[randomInt].author ?? "Anonymous")")
+            }
+            .padding(.horizontal)
             
             // Progress visual
             ProgressLine(selectedValue: $vm.selectedValue)
