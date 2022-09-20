@@ -116,6 +116,7 @@ struct ContentView: View {
                 Text("- \(modelData.quotes[randomInt].author ?? "Anonymous")")
             }
             .padding(.horizontal)
+            .animation(.easeIn, value: modelData.quotes[randomInt])
             
             // Progress visual
             ProgressLine(selectedValue: $vm.selectedValue)
