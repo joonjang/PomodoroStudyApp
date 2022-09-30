@@ -23,6 +23,7 @@
 		95C88E0D284B276600546516 /* PomodoroStudyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C88E0C284B276600546516 /* PomodoroStudyUITests.swift */; };
 		95C88E0F284B276600546516 /* PomodoroStudyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C88E0E284B276600546516 /* PomodoroStudyUITestsLaunchTests.swift */; };
 		95E8B3F928ADEF6E00A52CDD /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E8B3F828ADEF6E00A52CDD /* TimerModel.swift */; };
+		95F55DF428DFFA0C00A69D84 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F55DF328DFFA0C00A69D84 /* NotificationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		95C88E0C284B276600546516 /* PomodoroStudyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroStudyUITests.swift; sourceTree = "<group>"; };
 		95C88E0E284B276600546516 /* PomodoroStudyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroStudyUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		95E8B3F828ADEF6E00A52CDD /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
+		95F55DF328DFFA0C00A69D84 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 			children = (
 				95C88DF1284B276600546516 /* PomodoroStudyApp.swift */,
 				95C88DF3284B276600546516 /* ContentView.swift */,
+				95F55DF028DFF93600A69D84 /* Notification */,
 				9565EFC528BAC3C4004D8F9D /* Model */,
 				9565EFBD28BAC318004D8F9D /* Progress */,
 				9565EFBA28BABDB2004D8F9D /* Resources */,
@@ -176,6 +179,14 @@
 				95C88E0E284B276600546516 /* PomodoroStudyUITestsLaunchTests.swift */,
 			);
 			path = PomodoroStudyUITests;
+			sourceTree = "<group>";
+		};
+		95F55DF028DFF93600A69D84 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				95F55DF328DFFA0C00A69D84 /* NotificationController.swift */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95F55DF428DFFA0C00A69D84 /* NotificationController.swift in Sources */,
 				95C88DF4284B276600546516 /* ContentView.swift in Sources */,
 				95B7028328C3F2BC00D6F885 /* LineGraphView.swift in Sources */,
 				95B6D01D28D57B4C00B490C8 /* QuotesModel.swift in Sources */,

@@ -13,14 +13,18 @@ struct ContentView: View {
     
 //    let randomInt = Int.random(in: 0..<modelData.quotes.count)
     @State var randomInt = Int.random(in: 0...1642)
+
     
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
+
     func startProgress(climb: Bool, sec: Float) {
         
-        vm.seconds = sec * 60
-        // TODO: DEBUG
-//        vm.seconds = sec
+        if !vm.debug {
+            vm.seconds = sec * 60
+        } else {
+            vm.seconds = sec
+        }
         
         vm.chosenIndex = Float(modelData.progress[0].elapsed.count - 1)
         vm.climbing = climb
@@ -46,7 +50,7 @@ struct ContentView: View {
     }
     
     var body: some View {
-
+        
         VStack {
             
             // Time configuration buttons
@@ -63,12 +67,14 @@ struct ContentView: View {
                     addJson(range2: 5, inc: false)
                     startProgress(climb: false, sec: 5.0)
                     randomInt = Int.random(in: 0...1642)
+
                 }
                 Button("Long Break") {
                     deleteJson()
                     addJson(range2: 15, inc: false)
                     startProgress(climb: false, sec: 15.0)
                     randomInt = Int.random(in: 0...1642)
+
                 }
                 
             }
@@ -78,18 +84,22 @@ struct ContentView: View {
             // Time + Complete alert trigger
             Text("\(vm.time)")
                 .font(.system(size: 100))
-                .alert("Time Complete", isPresented: $vm.showingAlert) {
+                .alert("Good job!", isPresented: $vm.showingAlert) {
                     Button("Continue", role: .cancel) {
                         vm.finished = true
+                        vm.selectedValue = modelData.progress[0].elapsed.count - 1
                     }
                 }
                 .animation(nil, value: 0)
+
                 
 //            //DEBUG
-//            Text("chosen index: \(vm.chosenIndex)")
-//            Text("sec: \(vm.seconds)")
-//            Text("lastAdded: \(vm.lastAddedCount)")
-//            Text("count: \(modelData.progress[0].elapsed.count)")
+            if vm.debug {
+                Text("chosen index: \(vm.chosenIndex)")
+                Text("sec: \(vm.seconds)")
+                Text("lastAdded: \(vm.lastAddedCount)")
+                Text("count: \(modelData.progress[0].elapsed.count)")
+            }
 
             // Start/Pause buttons
             HStack {
@@ -104,7 +114,7 @@ struct ContentView: View {
                 Button("Start") {
                     vm.start(sec: vm.seconds)
                 }
-                .disabled(vm.isActive)
+                .disabled(vm.isActive || vm.finished || vm.showingAlert)
             }
             .padding(.horizontal)
             .padding(.top, -30)
@@ -121,7 +131,6 @@ struct ContentView: View {
             // Progress visual
             ProgressLine(selectedValue: $vm.selectedValue)
                 .padding(25)
-
         }
         .onReceive(timer) { _ in
             vm.updateCountDown()

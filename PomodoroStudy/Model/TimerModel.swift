@@ -11,6 +11,9 @@ import Foundation
 // https://www.youtube.com/watch?v=NAsQCNpodPI&list=LL&index=2
 extension ContentView {
     final class ViewModel: ObservableObject {
+        let debug: Bool = false
+        let notification = NotificationController()
+        
         @Published var selectedValue: Int? = 0
         @Published var finished: Bool = false
         @Published var lastAddedCount: Int = 25
@@ -23,11 +26,18 @@ extension ContentView {
         @Published var seconds: Float = 25.0 * 60 {
             didSet{
                 // Doesn't account for setting seconds, doesn't need to
-                self.time = "\(Int(seconds)/60):00"
                 
-                //TODO: DEBUG: accounts for seconds
-//                self.time = "\(Int(seconds)/60):\(Int(seconds)%60)"
+                if !debug {
+                    self.time = "\(Int(seconds)/60):00"
+                } else {
+                    self.time = "\(Int(seconds)/60):\(Int(seconds)%60)"
+                }
+
             }
+        }
+        
+        init() {            
+            notification.askNotification()
         }
         
         private var initialTime: Float = 0
@@ -38,11 +48,12 @@ extension ContentView {
             self.endDate = Date()
             self.isActive = true
             self.endDate = Calendar.current.date(byAdding: .second, value: Int(seconds), to: endDate)!
+            notification.notify(timeInterval: Double(seconds))
         }
         
         func pause() {
             self.isActive = false
-
+            notification.cancelNotify()
         }
         
         func reset() {
@@ -74,9 +85,12 @@ extension ContentView {
             self.seconds = Float(minutes * 60 + seconds)
             self.time = String(format: "%d:%02d", minutes, seconds)
             
-            self.selectedValue = Int(self.chosenIndex - (self.seconds/60))
-            // TODO: debugging, set to seconds increments
-//            self.selectedValue = Int(self.chosenIndex - self.seconds)
+            if !debug {
+                self.selectedValue = Int(self.chosenIndex - (self.seconds/60))
+            } else {
+                self.selectedValue = Int(self.chosenIndex - self.seconds)
+            }
+            
         }
     }
 }
